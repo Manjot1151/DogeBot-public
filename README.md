@@ -6,3 +6,4 @@
 # How to use
 - Add auth tokens in [auth.json](auth.json)
 - Run like any gradle app
+- Give credits to this repo if you use my code (and star it if you want)
