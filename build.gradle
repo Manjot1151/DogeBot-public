@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+	id 'application'
+}
+
+group 'org.manjot'
+version '1.0'
+
+repositories {
+	mavenCentral()
+	maven {
+		name 'm2-dv8tion'
+		url 'https://m2.dv8tion.net/releases'
+	}
+	maven {
+		url 'https://repo.hypixel.net/repository/Hypixel/'
+	}
+	maven {
+		url 'https://jitpack.io'
+	}
+}
+
+dependencies {
+	// discord
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.11'
+	implementation group: 'net.dv8tion', name: 'JDA', version: '5.0.0-beta.13'
+	implementation group: 'com.github.walkyst', name: 'lavaplayer-fork', version: '1.4.2'
+	implementation group: 'club.minnced', name: 'discord-webhooks', version: '0.8.4'
+
+	// database
+	implementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '4.10.2'
+
+	// minecraft
+	implementation group: 'net.hypixel', name: 'hypixel-api-transport-apache', version: '4.3'
+	implementation group: 'com.github.TheNullicorn', name: 'Nedit', version: '2.1.0'
+	implementation group: 'com.github.KevinPriv', name: 'MojangAPI', version: '1.0'
+
+	// topgg
+	implementation group: 'org.discordbots', name: 'DBL-Java-Library', version:'19abf19'
+
+	// utils
+	implementation group: 'com.google.code.gson', name:'gson', version:'2.10.1'
+	implementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+	implementation group: 'org.codehaus.groovy', name: 'groovy-jsr223', version: '3.0.18'
+}
+
+mainClassName = 'org.manjot.Main'
+task stage(dependsOn: ['clean'])

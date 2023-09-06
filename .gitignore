@@ -1,0 +1,14 @@
+.gradle
+
+build
+
+bin/*
+
+.vscode/
+
+*.class
+
+src/main/java/org/manjot/FixLinkDelete.java
+
+itemList.json
+profile.json
