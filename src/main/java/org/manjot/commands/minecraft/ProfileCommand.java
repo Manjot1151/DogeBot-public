@@ -46,23 +46,8 @@ public class ProfileCommand extends Command implements CommandListener {
         embed.setTitle("Profile");
         embed.addField("IGN", "```fix\n" + profile.get("name").getAsString() + "```", true);
         embed.addField("UUID", "```" + profile.get("id").getAsString() + "```", true);
-        embed.addField("Name History", getNameHistory(profile.get("name_history").getAsJsonArray()), false);
         embed.setThumbnail("https://mc-heads.net/head/" + profile.get("id").getAsString() + "/left");
         return embed.build();
-    }
-
-    private static String getNameHistory(JsonArray history) {
-        String nameHistory = "";
-        for (int i = history.size() - 1; i >= 0; i--) {
-            JsonObject nameObject = history.get(i).getAsJsonObject();
-            SimpleDateFormat formatter = new SimpleDateFormat("(dd/MM/yyyy)");
-            String nameString = nameObject.get("name").getAsString();
-            String dateString = nameObject.get("changedToAt") != null
-                    ? formatter.format(new Date(nameObject.get("changedToAt").getAsLong()))
-                    : "(Original Name)";
-            nameHistory += "```" + nameString + " " + dateString + "```";
-        }
-        return nameHistory;
     }
 
     @Override
